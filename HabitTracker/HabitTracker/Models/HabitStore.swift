@@ -19,11 +19,22 @@ final class HabitStore: ObservableObject {
         guard let data = try? JSONEncoder().encode(habits) else { return }
         sharedDefaults.set(data, forKey: key)
 
-        //add wdiget reload functionality here!!!
+        //add wdiget reload timeline here!!!
     }
 
     func load() {
+        guard
+            let data = sharedDefaults.data(forKey: key),
+            let loadedHabits = try? JSONDecoder().decode(
+                [Habit].self,
+                from: data
+            )
+        else {
+            return
+        }
+        habits = loadedHabits
 
+        //add widget reload timelime here!!!
     }
 
     //MARK: core features:

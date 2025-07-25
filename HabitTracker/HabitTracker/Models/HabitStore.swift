@@ -21,16 +21,20 @@ final class HabitStore: ObservableObject {
         UserDefaults(suiteName: "group.com.snzhrk.habits")!
     }()
     
-    //core helpers:
+    //MARK: core helpers:
     func save(){
+        guard let data = try? JSONEncoder().encode(habits) else {return}
+        sharedDefaults.set(data, forKey: key)
         
+        //add wdiget reload functionality here!!!
     }
     
     func load(){
         
     }
+
     
-    //core features:
+    //MARK: core features:
     func addHabit(name: String){
         habits.append(Habit(name: name))
         save()

@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct HabitListView: View {
+    @EnvironmentObject var store: HabitStore //observes it
+    @StateObject var viewModel: HabitListViewModel = HabitListViewModel(store: store) //owns it
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Habits").font(.largeTitle).fontWeight(.bold)
+            .frame(maxWidth: .infinity, alignment: .leading).padding()
+        
+
+    }
+}
+
+struct ListedHabits: View{
+    var body: some View{
+        
+        NavigationView{
+            
+        }
     }
 }
 

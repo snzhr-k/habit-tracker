@@ -6,9 +6,10 @@
 //
 
 import Foundation
-import SwiftUI
+import SwiftData
 
-struct Habit: Identifiable, Codable, Hashable {
+//@Model
+final struct Habit: Identifiable, Codable, Hashable {
     let id: UUID
     var name: String
     var records: [DayRecord]
